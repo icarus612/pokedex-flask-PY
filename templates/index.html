@@ -1,0 +1,12 @@
+{% extends "bootstrap/base.html" %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles.css') }}">
+{% block content %}
+    <div class="container d-flex flex-row flex-wrap justify-content-center align-items-center text-center">
+        
+
+        <form action="{{ url_for('get_pokemon') }}" method="POST">
+            <input type='text' name="pokemon" required placeholder="pokemon" />
+            <input class="btn btn-primary" type="submit" value="Get Pokemon">
+        </form>
+    </div>
+{% endblock %}
