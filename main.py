@@ -1,15 +1,35 @@
 from flask import Flask, render_template, url_for, request, redirect
 import requests
 import os
+import asyncio
+import aiohttp
 from flask_bootstrap import Bootstrap
+from flask_fontawesome import FontAwesome
 import json
 
 app = Flask(__name__)
 Bootstrap(app)
+fa = FontAwesome(app)
+async def get_pk_data(pk):
+	return await requests.get(f'https://pokeapi.co/api/v2/pokemon/{pk}').json()
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+	pokemon = []
+	loop = asyncio.new_event_loop()
+	asyncio.set_event_loop(loop)
+	check = False
+	pk_id = 1
+	while check:
+		try:
+			loop.run_until_complete(get_pk_data(pk_id))
+			pk_id += 1
+			print(pk_id)
+		except: 
+			print("excepted")
+			check = False
+	loop.close()
+	return render_template('index.html', pokemon=pokemon)
 
 @app.route('/<pokemon>')
 def pokemon(pokemon):
@@ -21,9 +41,13 @@ def pokemon(pokemon):
 		print(f"type: {i['type']['name']}")
 	for i in req['sprites']:
 		print(f"{' '.join(i.split('_'))}: {req['sprites'][i]}")
-	print(json.dumps(req['sprites'], indent=2))
-	return render_template('pokemon.html', pokemon=pokemon, error=None)
-
+	stats = req['stats']
+	types = req['types']
+	sprites = req['sprites']
+	name = req['name']
+	weight = req['weight']
+	return render_template('pokemon.html', stats = stats, types = types, sprites = sprites, name = name, weight = weight)
+	
 @app.route('/get_pokemon', methods=['POST'])
 def get_pokemon():
 	try:
