@@ -29,14 +29,17 @@ def pokemon(pokemon):
 		stats = req['stats']
 		types = req['types']
 		sprites = [req['sprites'][i] for i in req['sprites']]
-		name = req['name']
+		name = " ".join(req['name'].split("-"))
 		name = name.capitalize()
 		weight = req['weight']
 		sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5], sprites[6], sprites[7] = sprites[4], sprites[0], sprites[5], sprites[1], sprites[6], sprites[2], sprites[7], sprites[3]
+		sprites = [i if i != None else "" for i in sprites]
+
+		print(sprites)
 		return render_template('pokemon.html', stats = stats, types = types, sprites = sprites, name = name, weight = weight)
 	except:
 		return redirect(url_for('index'))
-		
+
 @app.route('/get_pokemon', methods=['POST'])
 def get_pokemon():
 	try:

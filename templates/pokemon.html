@@ -21,7 +21,7 @@
             {% endfor %}
         </p>
         <div class="flex-row container d-flex flex-wrap justify-content-center align-items-center text-center">
-            {% if sprites[0] != None %}
+            {% if sprites[0] != "" %}
                 <div>
                     <p> Male: </p>
                     <img src={{ sprites[0] }}>
@@ -29,7 +29,7 @@
                 </div>
             {% endif %}
 
-            {% if sprites[2] != None %}
+            {% if sprites[2] != "" %}
                 <div>
                     <p> Female: </p>
                     <img src={{ sprites[2] }}>
@@ -37,7 +37,7 @@
                 </div>
             {% endif %}
 
-            {% if sprites[4] != None %}
+            {% if sprites[4] != "" %}
                 <div>
                     <p> Shiny: </p>
                     <img src={{ sprites[4] }}>
@@ -45,7 +45,7 @@
                 </div>
             {% endif %}
 
-            {% if sprites[6] != None %}
+            {% if sprites[6] != "" %}
                 <div>
                     <p> Female Shiny: </p>
                     <img src={{ sprites[6] }}>
