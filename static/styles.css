@@ -17,6 +17,6 @@ input {
 
 @media only screen and (max-width: 721px) {
     .margin-mobile {
-        margin-top: 50px !important;
+        margin-top: 150px !important;
     }
 }
