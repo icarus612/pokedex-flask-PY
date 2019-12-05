@@ -1,8 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 import requests
 import os
-
-from flask_bootstrap import Bootstrap
+from flask_bootstrap4 import Bootstrap
 from flask_fontawesome import FontAwesome
 import json
 
