@@ -20,10 +20,16 @@
                 {{i.type.name}}
             {% endfor %}
         </p>
+        <p> Images: </p>
+        <div class="container d-flex flex-wrap justify-content-center align-items-center text-center">
+
         {% for i in sprites %}
-            <p>{{i}}</p>
+            {% if i != None %}
+                <img src={{i}}>
+            {% endif %}
         {% endfor %}
-  
+    </div>
+
         <p> {{weight}} pounds </p>
     </div>
 {% endblock %}
