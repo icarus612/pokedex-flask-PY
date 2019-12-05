@@ -10,25 +10,10 @@ import json
 app = Flask(__name__)
 Bootstrap(app)
 fa = FontAwesome(app)
-async def get_pk_data(pk):
-	return await requests.get(f'https://pokeapi.co/api/v2/pokemon/{pk}').json()
 
 @app.route('/')
 def index():
-	pokemon = []
-	loop = asyncio.new_event_loop()
-	asyncio.set_event_loop(loop)
-	check = False
-	pk_id = 1
-	while check:
-		try:
-			loop.run_until_complete(get_pk_data(pk_id))
-			pk_id += 1
-			print(pk_id)
-		except: 
-			print("excepted")
-			check = False
-	loop.close()
+	pokemon = requests.get(f'https://pokeapi.co/api/v2/pokemon/?limit=-1').json()["results"]
 	return render_template('index.html', pokemon=pokemon)
 
 @app.route('/<pokemon>')
