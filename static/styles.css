@@ -14,8 +14,9 @@ input {
 .btn {
     box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
 }
-@media screen (max-width: 721px) {
+
+@media only screen and (max-width: 721px) {
     .margin-mobile {
-        margin-top: 50px;
+        margin-top: 50px !important;
     }
 }
