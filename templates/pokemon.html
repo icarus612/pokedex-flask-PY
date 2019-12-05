@@ -6,30 +6,54 @@
 {% block content %}
     {% include "search-bar.html" %}
     <div class="container d-flex flex-column flex-wrap justify-content-center align-items-center text-center mt-5">
-        <h1>{{name}}</h1>
-        <p> Base stats:   </p>
+        <h1>{{ name }}</h1>
+        <p> Base stats: </p>
         <div class="container d-flex flex-wrap justify-content-center align-items-center text-center">
             {% for i in stats %}
                 <p class="p-3">
-                    {{i.stat.name}}: {{i.base_stat}}
+                    {{ i.stat.name }}: {{ i.base_stat }}
                 </p>
             {% endfor %}
         </div>
         <p> Type:
             {% for i in types %}
-                {{i.type.name}}
+                {{ i.type.name }}
             {% endfor %}
         </p>
         <p> Images: </p>
-        <div class="container d-flex flex-wrap justify-content-center align-items-center text-center">
-
-        {% for i in sprites %}
-            {% if i != None %}
-                <img src={{i}}>
+        <div class="flex-row container d-flex flex-wrap justify-content-center align-items-center text-center">
+            {% if sprites[0] != None %}
+                <div>
+                    <p> Male: </p>
+                    <img src={{ sprites[0] }}>
+                    <img src={{ sprites[1] }}>
+                </div>
             {% endif %}
-        {% endfor %}
-    </div>
 
-        <p> {{weight}} pounds </p>
+            {% if sprites[2] != None %}
+                <div>
+                    <p> Female: </p>
+                    <img src={{ sprites[2] }}>
+                    <img src={{ sprites[3] }}>
+                </div>
+            {% endif %}
+
+            {% if sprites[4] != None %}
+                <div>
+                    <p> Shiny: </p>
+                    <img src={{ sprites[4] }}>
+                    <img src={{ sprites[5] }}>
+                </div>
+            {% endif %}
+
+            {% if sprites[6] != None %}
+                <div>
+                    <p> Female Shiny: </p>
+                    <img src={{ sprites[6] }}>
+                    <img src={{ sprites[7] }}>
+                </div>
+            {% endif %}
+        </div>
+        <p>Average weight: {{ weight }} pounds </p>
     </div>
 {% endblock %}

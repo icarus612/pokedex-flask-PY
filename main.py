@@ -13,32 +13,36 @@ fa = FontAwesome(app)
 
 @app.route('/')
 def index():
-	pokemon = requests.get(f'https://pokeapi.co/api/v2/pokemon/?limit=-1').json()["results"]
+	pokemon = [" ".join(i["name"].split("-")).capitalize() for i in requests.get(f'https://pokeapi.co/api/v2/pokemon/?limit=-1').json()["results"]]
 	return render_template('index.html', pokemon=pokemon)
 
 @app.route('/<pokemon>')
 def pokemon(pokemon):
-	req = requests.get(f'https://pokeapi.co/api/v2/pokemon/{pokemon}').json()
-	for i in req['stats']:
-		print(f"{i['stat']['name']}: {i['base_stat']}")
-	for i in req['types']:
-		print(f"type: {i['type']['name']}")
-	for i in req['sprites']:
-		print(f"{' '.join(i.split('_'))}: {req['sprites'][i]}")
-	stats = req['stats']
-	types = req['types']
-	sprites = [req['sprites'][i] for i in req['sprites']]
-	name = req['name']
-	name = name.capitalize()
-	weight = req['weight']
-	sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5], sprites[6], sprites[7] = sprites[4], sprites[0], sprites[5], sprites[1], sprites[6], sprites[2], sprites[7], sprites[3]
-	return render_template('pokemon.html', stats = stats, types = types, sprites = sprites, name = name, weight = weight)
-	
+	try:
+		req = requests.get(f'https://pokeapi.co/api/v2/pokemon/{pokemon}').json()
+		for i in req['stats']:
+			print(f"{i['stat']['name']}: {i['base_stat']}")
+		for i in req['types']:
+			print(f"type: {i['type']['name']}")
+		for i in req['sprites']:
+			print(f"{' '.join(i.split('_'))}: {req['sprites'][i]}")
+		stats = req['stats']
+		types = req['types']
+		sprites = [req['sprites'][i] for i in req['sprites']]
+		name = req['name']
+		name = name.capitalize()
+		weight = req['weight']
+		sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5], sprites[6], sprites[7] = sprites[4], sprites[0], sprites[5], sprites[1], sprites[6], sprites[2], sprites[7], sprites[3]
+		return render_template('pokemon.html', stats = stats, types = types, sprites = sprites, name = name, weight = weight)
+	except:
+		return redirect(url_for('index'))
+		
 @app.route('/get_pokemon', methods=['POST'])
 def get_pokemon():
 	try:
 		pokemon = request.form['pokemon']
-		return redirect(url_for('pokemon', pokemon=pokemon))
+		pk = "-".join(pokemon.split(" ")).lower()
+		return redirect(url_for('pokemon', pokemon=pk))
 	except:
 		return redirect(url_for('index'))
 
