@@ -8,7 +8,7 @@
 input {
     height: 98%;
     border: unset;
-    box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5  !important);
+    box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
 }
 
 .btn {
@@ -49,61 +49,76 @@ input {
 }
 
 .poison {
-    background:#A040A0; border: 1px solid #682A68;
+    background:#A040A0; 
+    border: 1px solid #682A68;
 }
 
 .ground {
-    background:#E0C068; border: 1px solid #927D44;
+    background:#E0C068; 
+    border: 1px solid #927D44;
 }
 
 .rock {
-    background:#B8A038; border: 1px solid #786824;
+    background:#B8A038; 
+    border: 1px solid #786824;
 }
 
 .bug {
-    background:#A8B820; border: 1px solid #6D7815;
+    background:#A8B820; 
+    border: 1px solid #6D7815;
 }
 
 .ghost {
-    background:#705898; border: 1px solid #493963;
+    background:#705898; 
+    border: 1px solid #493963;
 }
 
 .steel {
-    background:#B8B8D0; border: 1px solid #787887;
+    background:#B8B8D0; 
+    border: 1px solid #787887;
 }
 
 .fire {
-    background:#F08030; border: 1px solid #9C531F;
+    background:#F08030; 
+    border: 1px solid #9C531F;
 }
 
 .water{
-    background:#6890F0; border: 1px solid #445E9C;
+    background:#6890F0; 
+    border: 1px solid #445E9C;
 }
 
 .grass {
-    background:#78C850; border: 1px solid #4E8234;
+    background:#78C850; 
+    border: 1px solid #4E8234;
 }
 
 .electric {
-    background:#F8D030; border: 1px solid #A1871F;
+    background:#F8D030; 
+    border: 1px solid #A1871F;
 }
 
 .psycic {
-    background:#F85888; border: 1px solid #A13959;
+    background:#F85888;
+    border: 1px solid #A13959;
 }
 
 .ice {
-    background:#98D8D8; border: 1px solid #638D8D;
+    background:#98D8D8;
+    border: 1px solid #638D8D;
 }
 
 .dragon {
-    background:#7038F8; border: 1px solid #4924A1;
+    background:#7038F8; 
+    border: 1px solid #4924A1;
 }
 
 .dark {
-    background:#705848; border: 1px solid #49392F;
+    background:#705848; 
+    border: 1px solid #49392F;
 }
 
 .fairy {
-    background:#EE99AC; border: 1px solid #9B6470;
+    background:#EE99AC; 
+    border: 1px solid #9B6470;
 }
