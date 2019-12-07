@@ -15,11 +15,15 @@
                 </p>
             {% endfor %}
         </div>
-        <p> Type:
-            {% for i in types %}
-                {{ i.type.name }}
-            {% endfor %}
-        </p>
+        <div class="container d-flex flex-wrap justify-content-center align-items-center text-center m-auto">
+            <p class="my-auto"> Type: </p>
+                {% for i in types %}
+                    <div class="{{ i.type.name }} pk-type">
+                        {{ i.type.name }}
+                    </div>
+                {% endfor %}
+            </p>
+        </div>
         <div class="flex-row container d-flex flex-wrap justify-content-center align-items-center text-center">
             {% if sprites[0] != "" %}
                 <div>
