@@ -18,12 +18,7 @@ def index():
 def pokemon(pokemon):
 	try:
 		req = requests.get(f'https://pokeapi.co/api/v2/pokemon/{pokemon}').json()
-		for i in req['stats']:
-			print(f"{i['stat']['name']}: {i['base_stat']}")
-		for i in req['types']:
-			print(f"type: {i['type']['name']}")
-		for i in req['sprites']:
-			print(f"{' '.join(i.split('_'))}: {req['sprites'][i]}")
+		print(req["id"])
 		stats = req['stats']
 		types = req['types']
 		sprites = [req['sprites'][i] for i in req['sprites']]
@@ -32,7 +27,7 @@ def pokemon(pokemon):
 		weight = req['weight']
 		sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5], sprites[6], sprites[7] = sprites[4], sprites[0], sprites[5], sprites[1], sprites[6], sprites[2], sprites[7], sprites[3]
 		sprites = [i if i != None else "" for i in sprites]
-		return render_template('pokemon.html', stats = stats, types = types, sprites = sprites, name = name, weight = weight)
+		return render_template('pokemon.html', stats=stats, types=types, sprites=sprites, name = name, weight = weight)
 	except:
 		return redirect(url_for('index'))
 

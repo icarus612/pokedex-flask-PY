@@ -122,3 +122,36 @@ input {
     background:#EE99AC; 
     border: 1px solid #9B6470;
 }
+
+.speed {
+    background: #6890F0;
+}
+
+.attack {
+    background: #FC1020;
+}
+
+.defense {
+    background: #F8D030;
+}
+
+.special-attack {
+    background: #FF8030;
+}
+
+.special-defense {
+    background: #D89030;
+}
+
+.hp {
+    background: #78C850;
+}
+
+.stat {
+    box-shadow: 1px 2px 5px -1px rgba(50, 50, 50, .5);
+    margin: 0 5px;
+}
+
+.full-page {
+    min-height: 100vh;
+}

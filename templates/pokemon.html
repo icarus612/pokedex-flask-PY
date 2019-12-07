@@ -5,58 +5,60 @@
 {% endblock %}
 {% block content %}
     {% include "search-bar.html" %}
-    <div class="container d-flex flex-column flex-wrap justify-content-center align-items-center text-center my-5 margin-mobile">
-        <h1>{{ name }}</h1>
-        <p> Base stats: </p>
-        <div class="container d-flex flex-wrap justify-content-center align-items-center text-center">
-            {% for i in stats %}
-                <p class="p-3">
-                    {{ i.stat.name }}: {{ i.base_stat }}
-                </p>
-            {% endfor %}
-        </div>
-        <div class="container d-flex flex-wrap justify-content-center align-items-center text-center m-auto">
-            <p class="my-auto"> Type: </p>
-                {% for i in types %}
-                    <div class="{{ i.type.name }} pk-type">
-                        {{ i.type.name }}
-                    </div>
+    <div class="full-page d-flex flex-wrap justify-content-center align-items-center">
+        <div class="container d-flex flex-column flex-wrap justify-content-start align-items-center text-center py-5 m-auto margin-mobile">
+            <h1>{{ name }}</h1>
+            <p> Base stats: </p>
+            <div class="d-flex flex-wrap justify-content-center align-items-center text-center mb-4">
+                {% for i in stats %}
+                    <p class="p-3 stat {{ i.stat.name }}">
+                        {{ i.stat.name }}: {{ i.base_stat }}
+                    </p>
                 {% endfor %}
-            </p>
+            </div>
+            <div class="container d-flex flex-wrap justify-content-center align-items-center text-center m-auto">
+                <p class="my-auto"> Type: </p>
+                    {% for i in types %}
+                        <div class="{{ i.type.name }} pk-type">
+                            {{ " ".join(i.type.name.split("-")) }}
+                        </div>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="flex-row container d-flex flex-wrap justify-content-center align-items-center text-center">
+                {% if sprites[0] != "" %}
+                    <div>
+                        <p> Male: </p>
+                        <img src={{ sprites[0] }}>
+                        <img src={{ sprites[1] }}>
+                    </div>
+                {% endif %}
+    
+                {% if sprites[2] != "" %}
+                    <div>
+                        <p> Female: </p>
+                        <img src={{ sprites[2] }}>
+                        <img src={{ sprites[3] }}>
+                    </div>
+                {% endif %}
+    
+                {% if sprites[4] != "" %}
+                    <div>
+                        <p> Shiny: </p>
+                        <img src={{ sprites[4] }}>
+                        <img src={{ sprites[5] }}>
+                    </div>
+                {% endif %}
+    
+                {% if sprites[6] != "" %}
+                    <div>
+                        <p> Female Shiny: </p>
+                        <img src={{ sprites[6] }}>
+                        <img src={{ sprites[7] }}>
+                    </div>
+                {% endif %}
+            </div>
+            <p>Average weight: {{ weight }} pounds </p>
         </div>
-        <div class="flex-row container d-flex flex-wrap justify-content-center align-items-center text-center">
-            {% if sprites[0] != "" %}
-                <div>
-                    <p> Male: </p>
-                    <img src={{ sprites[0] }}>
-                    <img src={{ sprites[1] }}>
-                </div>
-            {% endif %}
-
-            {% if sprites[2] != "" %}
-                <div>
-                    <p> Female: </p>
-                    <img src={{ sprites[2] }}>
-                    <img src={{ sprites[3] }}>
-                </div>
-            {% endif %}
-
-            {% if sprites[4] != "" %}
-                <div>
-                    <p> Shiny: </p>
-                    <img src={{ sprites[4] }}>
-                    <img src={{ sprites[5] }}>
-                </div>
-            {% endif %}
-
-            {% if sprites[6] != "" %}
-                <div>
-                    <p> Female Shiny: </p>
-                    <img src={{ sprites[6] }}>
-                    <img src={{ sprites[7] }}>
-                </div>
-            {% endif %}
-        </div>
-        <p>Average weight: {{ weight }} pounds </p>
     </div>
 {% endblock %}
