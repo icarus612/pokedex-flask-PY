@@ -9,10 +9,14 @@ input {
     height: 98%;
     border: unset;
     box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
+    -webkit-box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
+    -moz-box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
 }
 
 .btn {
     box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
+    -webkit-box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
+    -moz-box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
 }
 
 @media only screen and (max-width: 721px) {
