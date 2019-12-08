@@ -9,18 +9,18 @@
         <div class="container d-flex flex-column flex-wrap justify-content-start align-items-center text-center py-5 m-auto margin-mobile">
             <h1>{{ name }}</h1>
             <p> Base stats: </p>
-            <div class="d-flex flex-wrap justify-content-center align-items-center text-center mb-4">
+            <div class="d-flex flex-wrap justify-content-center align-items-stretch mb-4">
                 {% for i in stats %}
-                    <p class="p-3 stat {{ i.stat.name }}">
-                        {{ i.stat.name }}: {{ i.base_stat }}
-                    </p>
+                    <div class="p-3 stat {{ i.stat.name }} d-flex justify-content-center align-items-center">
+                            {{ " ".join(i.stat.name.split("-")) }}: {{ i.base_stat }}
+                    </div>
                 {% endfor %}
             </div>
             <div class="container d-flex flex-wrap justify-content-center align-items-center text-center m-auto">
                 <p class="my-auto"> Type: </p>
                     {% for i in types %}
                         <div class="{{ i.type.name }} pk-type">
-                            {{ " ".join(i.type.name.split("-")) }}
+                            {{ i.type.name }}
                         </div>
                     {% endfor %}
                 </p>
