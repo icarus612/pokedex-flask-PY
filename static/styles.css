@@ -124,32 +124,33 @@ input {
 }
 
 .speed {
-    background: #6890F0;
+    background: #7ED321;
 }
 
 .attack {
-    background: #FC1020;
+    background: #FF7F4A;
 }
 
 .defense {
-    background: #F8D030;
+    background: #FFBC00;
 }
 
 .special-attack {
-    background: #FF8030;
+    background: #4FC2FF;
 }
 
 .special-defense {
-    background: #D89030;
+    background: #9013FE;
 }
 
 .hp {
-    background: #78C850;
+    background: #EF4949;
 }
 
 .stat {
     box-shadow: 1px 2px 5px -1px rgba(50, 50, 50, .5);
     margin: 0 5px;
+    color: #fafafa;
 }
 
 .full-page {
