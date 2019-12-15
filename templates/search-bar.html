@@ -1,11 +1,11 @@
 {{ fontawesome_html() }}
-<div class="search-bar">
+<div class="search-nav">
     <form action="{{ url_for('get_pokemon') }}" method="POST">
-        <input type='text' name="pokemon" required placeholder=" pokemon" />
-        <button class="btn btn-primary" type="submit">
+        <input type='text' name="pokemon" class="search-bar" required placeholder="pokemon" />
+        <button class="btn nav-btn" type="submit">
             <i class="fas fa-search"></i>
         </button>
-        <a class="btn btn-primary" href="{{ url_for('index') }}">
+        <a class="btn nav-btn" href="{{ url_for('index') }}">
             <i class="fas fa-home"></i>
         </a>
     </form>

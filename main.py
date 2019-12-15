@@ -11,7 +11,7 @@ fa = FontAwesome(app)
 
 @app.route('/')
 def index():
-	pokemon = [" ".join(i["name"].split("-")).capitalize() for i in requests.get(f'https://pokeapi.co/api/v2/pokemon/?limit=-1').json()["results"]]
+	pokemon = [" ".join(i["name"].split("-")).title() for i in requests.get(f'https://pokeapi.co/api/v2/pokemon/?limit=-1').json()["results"]]
 	return render_template('index.html', pokemon=pokemon)
 
 @app.route('/<pokemon>')
@@ -22,8 +22,7 @@ def pokemon(pokemon):
 		stats = req['stats']
 		types = req['types']
 		sprites = [req['sprites'][i] for i in req['sprites']]
-		name = " ".join(req['name'].split("-"))
-		name = name.capitalize()
+		name = " ".join(req['name'].split("-")).title()
 		weight = req['weight']
 		sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5], sprites[6], sprites[7] = sprites[4], sprites[0], sprites[5], sprites[1], sprites[6], sprites[2], sprites[7], sprites[3]
 		sprites = [i if i != None else "" for i in sprites]

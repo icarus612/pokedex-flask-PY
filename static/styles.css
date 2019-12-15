@@ -1,16 +1,26 @@
-.search-bar {
+.search-nav {
     position: fixed;
     display: flex;
     right: 20px;
     top: 20px;
+    z-index: 22;
 }
 
-input {
+.search-bar {
     height: 98%;
     border: unset;
-    box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
-    -webkit-box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
-    -moz-box-shadow: 1px 2px 3px -1px rgba(0,0,0, .5) !important;
+    border-radius: 6px;
+    width: 250px;
+    padding-left: 12px;
+    box-shadow: 1px 1px 4px -1px rgba(0,0,0, .5) !important;
+    -webkit-box-shadow: 1px 1px 4px -1px rgba(0,0,0, .5) !important;
+    -moz-box-shadow: 1px 1px 4px -1px rgba(0,0,0, .5) !important;
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.search-bar::placeholder {
+    color: #AB49F1;
+    opacity: .8;
 }
 
 .btn {
@@ -166,3 +176,34 @@ input {
     min-height: 100vh;
 }
 
+.pk-li {
+    color: #790FC5;
+    border-radius: 6px;
+    box-shadow: 1px 2px 5px -1px rgba(50, 50, 50, .5);
+    height: 100%;
+    width: 100%;
+    display: block;
+    transition: .2s;
+}
+
+.pk-li:hover {
+    box-shadow: 1px 2px 6px -1px rgba(0, 0, 0, .5);
+    text-decoration: none;
+    transform: translateY(-1px);
+    transition: .3s;
+    color: #AB49F1;
+}
+
+.nav-btn {
+    color: #790FC5;
+    background-color: transparent;
+    background-image: none;
+    border-color: #790FC5;
+}
+
+.nav-btn:hover {
+    color: #fff;
+    border-color: transparent;
+    background-color: #8811DD !important;
+    opacity: .7;
+}
