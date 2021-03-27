@@ -1,6 +1,6 @@
 # The Flask Pokedex App
 
-## An Original Design By: Dev.Icarus
+## An Original Design By: dev.icarus
 ### Url: https://pokedex.devicarus.com
 
 #### My github: https://github.com/icarus612
